@@ -1,0 +1,22 @@
+.about {
+	margin-top: 50px;
+}
+.about__wrapper {
+	margin: 0 auto;
+}
+.about__logo-img {
+	display: block;
+	margin: 0 auto 2.5rem auto;
+	width: 100%;
+	max-width: 270px;
+}
+.about_text {     
+	font-size: 1.475em;
+	margin: 0 auto;
+	margin-bottom: 2.5rem;
+	padding: 0.875em;
+    font-weight: 400;
+	text-align: center;	
+    width: 100%;
+    max-width: 600px;
+}

@@ -1,0 +1,13 @@
+{
+  "required" : "Поле {{ fieldKey }} є обовязковим",
+  "name" : "ім'я",
+  "instagram" : "instagram",
+  "instagram-minlength" : "Поле instagram має містити мінімум 3 символи",
+  "welcomeMessage": "Thanks for joining, {{ firstName }}! It's great to have you!",
+  "course-min": "Поле 'Курс' повинно знаходитись в діапазоні від 1 до 6.",
+  "course-max": "Поле 'Курс' повинно знаходитись в діапазоні від 1 до 6.",
+  "login": {
+    "username": "Обовязкове",
+    "password": "Password here"
+  }
+}

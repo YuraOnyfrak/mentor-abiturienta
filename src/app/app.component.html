@@ -1,0 +1,64 @@
+<style>   
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    /* color: red; */
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .toolbar {
+    height: 60px;
+    margin: -8px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar a {
+    color: white;
+    align-items: center;
+    font-weight: 600;
+    font-size: medium;
+    text-decoration: none;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+  </style>
+
+<!-- Toolbar  -->
+<div class="toolbar" role="banner">
+  <a href="/"><img
+    width="40"
+    alt="Angular Logo"
+    src="../assets/images/icon-logo.png"
+    href
+  /></a>
+  <a href="/">МЕНТОР АБІТУРІЄНТА</a>
+</div> 
+
+<toaster-container [toasterconfig]='toasterConfig'></toaster-container>
+<router-outlet></router-outlet>

@@ -1,0 +1,176 @@
+<section class="container">
+  <section class="item map">
+    <app-ukraine-map (onChanged)="citySelectedFromMap($event)"></app-ukraine-map>
+  </section>
+    <section class="item">
+      <section class="add-form-section">       
+       <span class="form-caption">Заповнити дані</span>
+        <form [formGroup]="form" class="add-form">          
+          <!-- <mat-form-field class="example-full-width" id="city">
+            <input type="text"
+                  #cityInput
+                   placeholder="Міста"
+                   aria-label="text"
+                   matInput
+                   formControlName="city"
+                   [matAutocomplete]="city">
+            <mat-autocomplete #city="matAutocomplete" autoActiveFirstOption>
+              <mat-option 
+              (onSelectionChange)="cityInput.value !=undefined && citySelected($event, city)"
+               *ngFor="let city of cityOptions" 
+                [value]="city.name">
+                {{city.name}}                 
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>   -->
+          <mat-form-field class="example-full-width" id="city">
+            <mat-label>Міста</mat-label>
+            <mat-select formControlName="city" (selectionChange)="citySelected($event)">
+              <mat-option               
+               *ngFor="let city of cityOptions" 
+                [value]="city">
+                {{city.name}}                 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <mat-form-field class="example-full-width">
+              <input type="text"
+                    #universityInput
+                     placeholder="Університети"
+                     aria-label="text"
+                     matInput
+                     formControlName="university"
+                     [matAutocomplete]="university">
+              <mat-autocomplete #university="matAutocomplete" autoActiveFirstOption>
+                <mat-option 
+                (onSelectionChange)="universityInput.value !=undefined && universitySelected($event, university)"
+                 *ngFor="let university of universityOptions" 
+                  [value]="university.name">
+                  {{university.name}}                 
+                </mat-option>
+              </mat-autocomplete>
+          </mat-form-field>    -->
+          <mat-form-field class="example-full-width">
+            <mat-label>Університети</mat-label>
+            <mat-select  formControlName="university" (selectionChange)="universitySelected($event)">
+              <mat-option               
+               *ngFor="let university of universityOptions" 
+                [value]="university">
+                {{university.name}}                 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <mat-form-field class="example-full-width">
+              <input type="text"
+                    #facultytyInput
+                     matInput
+                     placeholder="Факультети та інститути"
+                     formControlName="faculties"                     
+                     [matAutocomplete]="faculties">
+                <mat-autocomplete #faculties="matAutocomplete" autoActiveFirstOption>
+                  <mat-optgroup *ngFor="let group of filteredFacultiesOptions | async" [label]="group.letter">
+                    <mat-option 
+                    (onSelectionChange)="facultytyInput.value !=undefined && facultySelected($event, faculty)"
+                    *ngFor="let faculty of group.faculties" [value]="faculty.name">
+                      {{faculty.name}}
+                    </mat-option>
+                </mat-optgroup>
+              </mat-autocomplete>
+          </mat-form-field>   -->
+          <mat-form-field class="example-full-width">
+            <mat-label>Факультети та інститути</mat-label>
+            <mat-select formControlName="faculties" (selectionChange)="facultySelected($event)">
+              <mat-optgroup *ngFor="let group of facultiesOptions" [label]="group.letter">
+                <mat-option                 
+                *ngFor="let faculty of group.faculties" [value]="faculty">
+                  {{faculty.name}}
+                </mat-option>
+              </mat-optgroup>
+            </mat-select>
+          </mat-form-field>
+          <!-- <mat-form-field class="example-full-width">
+              <input type="text"
+                    #specialityInput
+                     placeholder="Спеціальності"
+                     aria-label="Number"
+                     matInput
+                     formControlName ="speciality"
+                     [matAutocomplete]="speciality">
+              <mat-autocomplete #speciality="matAutocomplete">
+                <mat-option
+                (onSelectionChange)="specialityInput.value !=undefined && specialitySelected($event, speciality)"
+                *ngFor="let speciality of filteredSpecialityOptions | async" [value]="speciality.name">
+                  {{speciality.name}}
+                </mat-option>
+              </mat-autocomplete>
+          </mat-form-field>            -->
+          <mat-form-field class="example-full-width">
+            <mat-label>Спеціальності</mat-label>
+            <mat-select formControlName ="speciality" (selectionChange)="specialitySelected($event)">
+              <mat-option              
+              *ngFor="let speciality of specialityOptions" [value]="speciality">
+                {{speciality.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <mat-form-field class="example-full-width">
+              <input type="text"
+                    #specializationInput
+                     placeholder="Спеціалізації"
+                     aria-label="Number"
+                     matInput
+                     formControlName="specialization"
+                     [matAutocomplete]="specialization">
+              <mat-autocomplete #specialization="matAutocomplete">
+                <mat-option 
+                (onSelectionChange) = "specializationInput.value != undefined && specializationSelected($event, specialization)"
+                *ngFor="let specialization of filteredSpecializationOptions | async"  [value]="specialization.name">
+                  {{specialization.name}}
+                </mat-option>
+              </mat-autocomplete>
+          </mat-form-field> -->
+          <mat-form-field class="example-full-width">
+            <mat-label>Спеціалізації</mat-label>
+            <mat-select formControlName="specialization" (selectionChange)="specializationSelected($event)">
+              <mat-option               
+              *ngFor="let specialization of specializationOptions"  [value]="specialization">
+                {{specialization.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+              <mat-label>Ім'я</mat-label>
+               <input required matInput formControlName="name" maxlength="10"> 
+          </mat-form-field>  
+            <mat-form-field class="example-full-width">
+              <mat-label>Прізвище</mat-label>
+               <input  matInput formControlName="lastname" maxlength="15"> 
+          </mat-form-field>  
+          <mat-form-field class="example-full-width">
+              <mat-label>Курс</mat-label>
+               <input type="number" min="1" max="6" 
+                      matInput 
+                      formControlName="course">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" id="telegram">
+              <mat-label>Telegram</mat-label>
+               <input matInput formControlName="telegram" readonly > 
+          </mat-form-field>  
+          <!-- <mat-form-field class="example-full-width">
+              <mat-label>Instagram</mat-label>
+               <input matInput formControlName="instagram" minlength="5" maxlength="30"> 
+          </mat-form-field>   -->
+          <mat-slide-toggle
+                class="example-margin"
+                [color]="color"
+                formControlName = 'canHelp'>
+               Можу відповісти на питання стосовно гуртожитку
+          </mat-slide-toggle>
+          <button type="button" class="btn add-btn"  (click)="submit()">
+            <span>Продовжити</span>
+          </button>
+        </form>  
+      </section>
+    </section>     
+</section>
+

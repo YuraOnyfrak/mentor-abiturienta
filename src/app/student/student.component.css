@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    margin: 8px;
+    padding: 0;
+    flex-direction: column-reverse;
+    font-family: verdana, arial, sans-serif;        
+}
+
+.item {   
+    color:black;
+    font-size: 0.99em;
+    padding: 1em;   
+}
+
+.item:nth-child(1) {   
+    flex: 0 0 60%;    
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.add-btn{
+    width: 100% !important;
+    margin: 25px 0px;
+}
+
+.add-form-section{
+    margin: auto;
+    margin-top: 3%;
+     padding: 0px 40px 0px 0px;
+}
+
+.add-form{
+    margin: auto;
+    margin-top: 3%;
+    /* padding: 0 40px 40px 0px;      */
+}
+
+.form-caption{
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.selected-city{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+ .map{
+     display: none;
+} 
+
+/* #telegram{
+    display: none;
+} */
+
+@media screen and (min-width: 600px) {
+     
+    .container {
+        flex-direction: row;
+    }
+
+    .map{
+        display: flex;
+    } 
+
+   #city{
+       display: none;
+   }
+
+   /* .item:nth-child(2) {   
+    flex: 0 0 20%;    
+    } */
+
+}

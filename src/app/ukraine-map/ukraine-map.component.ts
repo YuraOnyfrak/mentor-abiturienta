@@ -1,0 +1,48 @@
+import { Component, OnInit,  EventEmitter, Output, Input, ElementRef} from '@angular/core';
+import * as jQuery from 'jquery';
+
+declare var jQuery: jQuery;
+
+@Component({
+  selector: 'app-ukraine-map',
+  templateUrl: './ukraine-map.component.html',
+  styleUrls: ['./ukraine-map.component.css']  
+})
+export class UkraineMapComponent implements OnInit {
+	@Output() onChanged = new EventEmitter<number>();
+	public selectedRegion : number;
+
+    change(region: any) {
+        this.onChanged.emit(region);
+    }
+
+	constructor(private elementRef : ElementRef) { }
+
+	ngOnInit() {
+		jQuery(document).ready(function() {
+				jQuery('#ua').vectorMap(
+				{
+					map: 'ukraine',
+					backgroundColor: 'white',
+					borderColor: '#FF9900',
+					borderOpacity: 0.60,
+					borderWidth: 2,
+					color: '#1076C8',
+					hoverColor: '#0A4C82',
+					selectedColor: '#FF9900',
+					selectedRegions: ['1'],					
+					onRegionClick: (element, code, region) =>
+					{	
+						jQuery(".selected-region").val(code);
+						jQuery(".selected-region").click();
+					}
+				}
+				);
+			});
+			
+		jQuery(this.elementRef.nativeElement).find('input').on('click', () => {	
+			this.selectedRegion = jQuery(".selected-region").val();		
+			this.change(this.selectedRegion);
+		});	
+	}	
+}
