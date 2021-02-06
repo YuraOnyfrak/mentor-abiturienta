@@ -7,7 +7,7 @@ import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angula
 })
 export class ThankYouPageComponent implements OnInit, AfterViewInit {
 
-  @ViewChild("shareBtn", {static: false})
+  @ViewChild("shareBtn")
   share: ElementRef;
   constructor() { }
 

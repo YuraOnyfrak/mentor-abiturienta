@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit, AfterViewInit {
   @ViewChild('submitBtn', {static: true}) submitBtn: ElementRef;
   @ViewChildren('pinInput') pinInputs: QueryList<any>;
 
-  @ViewChild("nameText", {static: false})
+  @ViewChild("nameText")
   nameParagraph: ElementRef;
    
   name: string = "Tom";
