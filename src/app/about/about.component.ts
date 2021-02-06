@@ -8,6 +8,8 @@ import { switchMap, tap } from 'rxjs/operators';
 import { TelegramResponse } from '../shared/models/telegram-response';
 import { SharedService } from '../shared/services/shared.service';
 import { environment } from 'src/environments/environment';
+import { MatDialog } from '@angular/material/dialog';
+//import { DialogWindowsComponent } from '../dialog-windows/dialog-windows.component';
 
 @Component({
   selector: 'app-about',
@@ -37,7 +39,8 @@ export class AboutComponent implements OnInit, AfterViewInit {
     private router: Router,
     private fb: FormBuilder,
     private sharedService: SharedService,
-    private injector: Injector
+    private injector: Injector,
+    public dialog: MatDialog
   ) { }
 
   
@@ -58,20 +61,37 @@ export class AboutComponent implements OnInit, AfterViewInit {
   }
 
   loginViaTelegram(user: TelegramResponse) {    
-    this.loginService.telegramAuthentication(user)
-        .subscribe(
-          (response) => {   
-            const routerService = this.injector.get(Router);
-            const ngZone = this.injector.get(NgZone);
-            ngZone.run(() => {
-             // this.sharedService.nextMessage(user)
-              this.router.navigate(['/student'], { skipLocationChange: true })
-            });
-          },
-          error => {
-            console.log(error)
+
+    if(user.username == '' || user.username == null ||  user.username == undefined)
+      alert();// this.openDialog();
+    else{
+      this.loginService.telegramAuthentication(user)
+      .subscribe(
+        (response) => {   
+          const routerService = this.injector.get(Router);
+          const ngZone = this.injector.get(NgZone);
+          ngZone.run(() => {
+           // this.sharedService.nextMessage(user)
+            this.router.navigate(['/student'], { skipLocationChange: true })
           });
+        },
+        error => {
+          //console.log(error)
+        });
+    }
+   
   }
+
+  // openDialog() : void {
+  //   const dialogRef = this.dialog.open(DialogWindowsComponent, {
+  //     width: '250px'
+      
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {     
+  //    this.router.navigate(['/']);     
+  //   });
+  // }
 
   ngAfterViewInit(): void {
     this.convertToScript();

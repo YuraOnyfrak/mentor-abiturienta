@@ -1,0 +1,64 @@
+
+.add-form {
+    display: flex;
+    padding: 1em;
+    flex-direction: column;
+    margin-top: 3%;     
+    justify-content: space-around;   
+}
+
+.result-container {
+    display: flex;
+    padding: 1em;    
+    flex-wrap:wrap;
+    flex-direction: row;
+}
+
+.example-card {
+    /* max-width: 350px; */
+    max-height: 300px;
+    margin: 10px;
+}  
+  
+.example-header-image {
+    background-image: url('https://www.popularitas.com/wp-content/uploads/2018/04/user-hero-blue.png');
+    background-size: cover;
+}
+
+@media (max-width: 1000px) {
+     
+    .result-container {
+        flex-direction: column;
+    }    
+
+    .container {
+        flex-direction: column;
+    }
+}
+
+.container {
+    display: flex;
+    margin: 8px;
+    padding: 0;
+    flex-direction: row;
+    font-family: verdana, arial, sans-serif;        
+}
+
+.item {   
+    color:black;
+    font-size: 0.99em;
+    padding: 1em;   
+}
+
+.item:nth-child(1) {   
+    flex: 0 0 40%;    
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.add-btn{
+    width: 100% !important;
+    margin: 25px 0px;
+}

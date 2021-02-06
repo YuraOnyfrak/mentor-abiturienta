@@ -6,6 +6,8 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/mate
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
 
 import {Routes, RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,12 +26,20 @@ import { SharedModule } from './shared/shared.module';
 import {ToasterModule, ToasterService} from 'angular2-toaster'; 
 import {AlertService} from './shared/services/alert.service';
 import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatStepperModule} from '@angular/material/stepper';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TooltipModule } from 'ng2-tooltip-directive';
-import 'hammerjs'
-
+import 'hammerjs';
+import { DialogWindowsComponent } from './dialog-windows/dialog-windows.component';
+import { FAQComponent } from './faq/faq.component';
+import { SearchFormComponent } from './search-form/search-form.component';
+import { SharingComponent } from './sharing/sharing.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http);
@@ -41,7 +51,11 @@ const appRoutes: Routes =[
   { path: 'student', component: StudentComponent},
   { path: 'map', component: UkraineMapComponent},
   { path: 'thank-you', component: ThankYouPageComponent},
-  { path: 'auth', component: AuthenticationComponent}
+  { path: 'faq', component: FAQComponent},
+  { path: 'auth', component: AuthenticationComponent},
+  { path: 'sharing', component: SharingComponent},
+  { path: 'search', component: MentorListComponent}
+
   // { path: '**', component: NotFoundComponent }
 ];
 
@@ -55,7 +69,11 @@ const appRoutes: Routes =[
     SearchMentorComponent,
     MentorListComponent,
     AboutComponent,
-    ThankYouPageComponent
+    ThankYouPageComponent,
+    DialogWindowsComponent,
+    FAQComponent,
+    SearchFormComponent,
+    SharingComponent
   ],
   imports: [
     MatAutocompleteModule,
@@ -68,10 +86,15 @@ const appRoutes: Routes =[
     MatFormFieldModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatStepperModule,
     ToasterModule,
+    MatCardModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    TooltipModule,
+    TooltipModule,   
+    PdfViewerModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -79,13 +102,18 @@ const appRoutes: Routes =[
           deps: [HttpClient]
       }
     }),
-    RouterModule.forRoot(appRoutes, { useHash: true })
+    RouterModule.forRoot(appRoutes, { useHash: true }),
+    NgxQRCodeModule
   ],
+  entryComponents: [AboutComponent, FAQComponent],//, DialogWindowsComponent],    
   providers: [    
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+   // { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     ToasterService,
-    AlertService
+    AlertService,
+    FAQComponent
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

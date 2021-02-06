@@ -24,7 +24,7 @@ export class ThankYouPageComponent implements OnInit, AfterViewInit {
     const script = document.createElement('script');
     script.src = 'https://telegram.org/js/telegram-widget.js?5'; 
     script.setAttribute('data-telegram-share-url', "https://mentor-abiturienta.imfast.io");
-    script.setAttribute('data-comment', 'Допоможи абітурієнтом з вибором професії!');
+    script.setAttribute('data-comment', 'Допоможи абітурієнтам з вибором професії!');
     script.setAttribute('data-size', 'large');
     element.parentElement.replaceChild(script, element);
   }

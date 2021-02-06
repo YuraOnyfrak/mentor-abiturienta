@@ -19,7 +19,7 @@ export class UkraineMapComponent implements OnInit {
 	constructor(private elementRef : ElementRef) { }
 
 	ngOnInit() {
-		jQuery(document).ready(function() {
+		jQuery(document).ready(() => {
 				jQuery('#ua').vectorMap(
 				{
 					map: 'ukraine',
@@ -33,16 +33,9 @@ export class UkraineMapComponent implements OnInit {
 					selectedRegions: ['1'],					
 					onRegionClick: (element, code, region) =>
 					{	
-						jQuery(".selected-region").val(code);
-						jQuery(".selected-region").click();
+						this.change(code);
 					}
-				}
-				);
-			});
-			
-		jQuery(this.elementRef.nativeElement).find('input').on('click', () => {	
-			this.selectedRegion = jQuery(".selected-region").val();		
-			this.change(this.selectedRegion);
-		});	
-	}	
+				});
+			});		
+	}
 }

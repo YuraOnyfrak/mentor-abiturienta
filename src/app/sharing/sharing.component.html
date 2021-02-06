@@ -1,0 +1,45 @@
+<div class="container">
+   <div id="school">
+    <div class="item" >
+        <h2>
+            Оголошення для шкіл
+        </h2>
+        <div class="advertisment-container">
+            <img class="logo" src="../../assets/images/logo.png">
+            <p class="info_text">
+                 Скільки пар на тиждень? Як відбувається навчальний процес?..."
+                 У кожного абітурієнта виникають такі та інші питання пр вступі до ВНЗ.<br>
+                 Тут ти зможеш знайти студентів, які зможуть відповісти на твої питання :)
+             </p> 
+             <div class="qr-section">
+                <ngx-qrcode
+                [elementType]="elementType"
+                [errorCorrectionLevel]="correctionLevel"
+                [value]="value"
+                alt="Demo QR Code"
+                cssClass="bshadow"></ngx-qrcode>
+             </div>
+             <button type="button" class="btn add-btn print-btn"  (click)="onPrintAdvertismentForSchool()">
+                <span>Роздрукувати</span>
+            </button>
+         </div>       
+    </div> 
+   </div>      
+    <div class="item" id="university">
+        <h2>
+            Оголошення для університетів
+        </h2>
+        <div class="advertisment-container">
+           <img class="logo" src="../../assets/images/logo.png">
+           <p class="info_text">
+                Скільки пар на тиждень? Як відбувається навчальний процес?..."
+                У кожного абітурієнта виникають такі та інші питання пр вступі до ВНЗ.<br>
+                Тут ти зможеш знайти студентів, які зможуть відповісти на твої питання :)
+            </p> 
+            <div class="qr-section">аві</div>
+            <button type="button" class="btn add-btn print-btn"  (click)="onPrintAdvertismentForUniversity()">
+                <span>Роздрукувати</span>
+            </button>
+        </div>
+    </div>
+</div>

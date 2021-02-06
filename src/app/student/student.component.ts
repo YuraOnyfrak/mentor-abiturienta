@@ -1,14 +1,12 @@
-import {Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import {Observable, from, pipe, forkJoin, of} from 'rxjs';
-import {startWith, map, debounceTime, mergeMap, tap, concatMap} from 'rxjs/operators';
+import {map, tap, concatMap} from 'rxjs/operators';
 import {ThemePalette} from '@angular/material/core';
 import {UniversityService} from '../shared/services/university.service'
 import {University} from '../shared/models/university'
 import * as jQuery from 'jquery';
 import { GroupedFaculty } from '../shared/models/grouped-faculty';
 import { FacultyService } from '../shared/services/faculty.service';
-import { Faculty } from '../shared/models/faculty';
 import { SpecialityService } from '../shared/services/speciality.service';
 import { SpecializationService } from '../shared/services/specialization.service';
 import { Speciality } from '../shared/models/speciality';
@@ -17,7 +15,6 @@ import { CreateStudent } from '../shared/models/Student/create-student';
 import { StudentService } from '../shared/services/student.service';
 import {Router} from "@angular/router";
 import { SharedService } from '../shared/services/shared.service';
-import { TelegramResponse } from '../shared/models/telegram-response';
 import { DynamicNotificationService } from '../shared/services/dynamic-notification.service';
 import { CityService } from '../shared/services/city.service';
 import { City } from '../shared/models/city';
@@ -45,9 +42,7 @@ export class StudentComponent implements OnInit {
     private specializationService : SpecializationService,
     private cityService : CityService,
     private studentService : StudentService,
-    private router: Router,
-    private sharedService: SharedService
-  ){}
+    private router: Router  ){}
 
  form: FormGroup = this.formBuilder.group({
     city : '',
@@ -84,13 +79,14 @@ export class StudentComponent implements OnInit {
   //filteredCityOptions: Observable<City[]>;
 
   public student : CreateStudent;
+  
 
-  ngOnInit() {  
+  ngOnInit() { 
     this.student = new CreateStudent();
     this.studentService.get()
       .pipe(
-        map((response : Student)=>{
-          console.log(response);
+        map((response : Student)=>{          
+
           this.form.controls['name'].setValue(response.firstname);
           this.form.controls['lastname'].setValue(response.lastname);
           this.form.controls['telegram'].setValue(response.username);
@@ -126,7 +122,6 @@ export class StudentComponent implements OnInit {
               tap((faculties: GroupedFaculty[]) => {
                 if(response.facultyId){                  
                   this.facultiesOptions = faculties;
-                  console.log(this.facultiesOptions.filter(s=>s.faculties.find(s=>s.id == response.facultyId))[0].faculties);
                   this.form.controls['faculties'].setValue(
                    this.facultiesOptions.filter(s=>s.faculties.find(s=>s.id == response.facultyId))[0].faculties[0]);
                 } 
@@ -147,7 +142,6 @@ export class StudentComponent implements OnInit {
               tap((specializations : Specialization[]) => {
                 if(response.specializationId){
                   this.specializationOptions = specializations;
-                  console.log(specializations);
                   this.form.controls['specialization'].setValue(
                     this.specializationOptions.find(s=>s.id === response.specializationId));
                 }
@@ -194,12 +188,11 @@ export class StudentComponent implements OnInit {
 
       return;
     }
-    console.log(this.student);
-    this.studentService.post(this.student).subscribe((response) => 
+    this.studentService.post(this.student).subscribe(() => 
       { 
         this.router.navigate(['/thank-you']);
       },
-      error => {console.log(error)
+      () => {
       this.router.navigate(['/thank-you']);}
     );
   }
@@ -302,5 +295,3 @@ export class StudentComponent implements OnInit {
   }
   //#endregion
 }
-
-

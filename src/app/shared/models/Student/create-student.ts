@@ -10,3 +10,12 @@ export class CreateStudent {
     instagram : string;
     canHelp : boolean; 
 }
+
+export class Mentor{
+    name: string;
+    telegram: string;
+    university: string;
+    speciality: string;
+    course: number;
+    canHelp: boolean;    
+}
