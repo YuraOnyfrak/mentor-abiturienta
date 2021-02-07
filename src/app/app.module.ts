@@ -102,7 +102,7 @@ const appRoutes: Routes =[
           deps: [HttpClient]
       }
     }),
-    RouterModule.forRoot(appRoutes, { useHash: true }),
+    RouterModule.forRoot(appRoutes, { useHash: true, relativeLinkResolution: 'legacy' }),
     NgxQRCodeModule
   ],
   entryComponents: [AboutComponent, FAQComponent],//, DialogWindowsComponent],    
