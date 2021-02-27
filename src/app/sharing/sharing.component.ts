@@ -10,7 +10,8 @@ export class SharingComponent implements OnInit {
 
   public elementType = NgxQrcodeElementTypes.URL;
   public correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  public value = 'https://www.techiediaries.com/';
+  public schoolUrlForPrint = 'https://mentor-abiturienta.imfast.io/#/student';
+  public universityUrlForPrint = 'https://mentor-abiturienta.imfast.io/#/';
 
   constructor() { }
 
@@ -48,52 +49,53 @@ export class SharingComponent implements OnInit {
   }
 
   private getStyles() : string{
-    return `.btn {
-      background-color:#FF9000;
-      border-radius: 2em;
-      color: #ffffff;
-      display: block; 
-      margin: 0 auto;
-      margin-bottom: 1.5em;
-      padding: 1.125em 0;
-      position: relative;      
-      width: 200px;
-      -webkit-print-color-adjust: exact; 
+    return `@page{
+      margin: 0mm;
     }
-    item {
+    .advertisment-container {
       font-size: 1.1em;
-      padding: 1em;
-      border: 2px dashed black;
-      margin-right: 50px;
-  }  
-  .item>h2{
+      padding: 0 3em;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;	 
+      margin: 0 40px;
+  }   
+  .title{
       text-align: center;
       color: #000;
-  } 
-  
-  .advertisment-container{
-      /* height: 60vh; */
-      text-align: center;	    
+      font-size: large;
+      font-weight: bold;
+      margin: 15px 0;
   }  
   .advertisment-container>.logo{
       max-width: 320px;
-      margin: 20px 0;
+      margin: 0 auto;
+      padding: 45px; 
   }  
   .advertisment-container .info_text {     
-    margin: 0 auto;
     font-weight: 400;
     max-width: 400px;   
     text-align: center;
     margin: 0 auto;
   }  
-  .advertisment-container .qr-section{
-      width:100px; 
-      height: 100px;
-      margin: 0 auto;
-  }  
+  
+  .bshadow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 5px #222222);
+    margin: 20px 0; 
+  }
+
   .print-btn{
-      margin-top: 10px;
-  }`;
+     display: none;
+  }
+  
+  .title-text{
+    display: none;
+  } 
+  `;
   }
 
 }

@@ -55,7 +55,7 @@
           </button>
       </form> 
   </section>
-  <section class="item result-container" *ngFor="let mentor of mentors">       
+  <div class="item result-container" *ngFor="let mentor of mentors">       
       <mat-card class="example-card"  >
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -69,12 +69,12 @@
           <div>
             <span *ngIf="mentor.canHelp">Може</span>
             <span *ngIf="!mentor.canHelp">Не може</span>
-            <span>допомогти в питаннях з гуртожитком</span></div>
+            <span> допомогти в питаннях з гуртожитком</span></div>
         </mat-card-content>
-        <mat-card-actions>
+        <!-- <mat-card-actions>
           <button mat-button>Детально</button>
-        </mat-card-actions>
-      </mat-card>   
-  </section>     
+        </mat-card-actions>-->
+      </mat-card>    
+    </div>     
 </section>
 

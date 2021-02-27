@@ -16,7 +16,6 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { UkraineMapComponent } from './ukraine-map/ukraine-map.component';
 import { StudentComponent } from './student/student.component';
-import { SearchMentorComponent } from './search-mentor/search-mentor.component';
 import { MentorListComponent } from './mentor-list/mentor-list.component';
 import { AboutComponent } from './about/about.component';
 
@@ -37,7 +36,6 @@ import { TooltipModule } from 'ng2-tooltip-directive';
 import 'hammerjs';
 import { DialogWindowsComponent } from './dialog-windows/dialog-windows.component';
 import { FAQComponent } from './faq/faq.component';
-import { SearchFormComponent } from './search-form/search-form.component';
 import { SharingComponent } from './sharing/sharing.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 // AoT requires an exported function for factories
@@ -66,13 +64,11 @@ const appRoutes: Routes =[
     AuthenticationComponent,
     UkraineMapComponent,
     StudentComponent,
-    SearchMentorComponent,
     MentorListComponent,
     AboutComponent,
     ThankYouPageComponent,
     DialogWindowsComponent,
     FAQComponent,
-    SearchFormComponent,
     SharingComponent
   ],
   imports: [

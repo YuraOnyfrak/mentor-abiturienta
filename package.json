@@ -36,7 +36,7 @@
     "ng2-pdf-viewer": "^6.3.2",
     "ng2-tooltip-directive": "^2.9.20",
     "ngx-toastr": "^12.0.0",
-    "rxjs": "^6.5.4",
+    "rxjs": "^6.6.3",
     "rxjs-compat": "^6.5.4",
     "rxjs-observable": "0.0.7",
     "rxjs-operators": "^1.1.3",

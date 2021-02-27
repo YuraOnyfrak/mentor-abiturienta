@@ -1,45 +1,61 @@
 <div class="container">
    <div id="school">
-    <div class="item" >
-        <h2>
-            Оголошення для шкіл
-        </h2>
+    <div class="advertisment-container">
+        <div class="title-text title">
+            <span>
+                Оголошення для університетів
+            </span>
+        </div>
+        <div class="print title">
+            <span>
+                Стань ментор!
+            </span>
+        </div>
+        <img class="logo" src="../../assets/images/logo.png">
+        <p class="info_text">
+            Скільки пар на тиждень? <br>
+            Як відбувається навчальний процес?..." <br>
+            Такі питання виникають у більшості абітурієнтів.<br>
+            Допоможи абітурієнту знайти відповіді на їхні запитання!             
+         </p> 
+         <ngx-qrcode
+            [elementType]="elementType"
+            [errorCorrectionLevel]="correctionLevel"
+            [value]="schoolUrlForPrint"
+            cssClass="bshadow"></ngx-qrcode>
+         <button type="button" class="btn add-btn print-btn"  (click)="onPrintAdvertismentForSchool()">
+            <span>Роздрукувати</span>
+        </button>
+     </div>  
+   </div>      
+    <div  id="university">
         <div class="advertisment-container">
+            <div class="title-text title">
+                <span>
+                    Оголошення для шкіл
+                </span>
+            </div>
+            <div class="print title">
+                <span>
+                   Найди ментора!
+                </span>
+            </div>
             <img class="logo" src="../../assets/images/logo.png">
             <p class="info_text">
-                 Скільки пар на тиждень? Як відбувається навчальний процес?..."
-                 У кожного абітурієнта виникають такі та інші питання пр вступі до ВНЗ.<br>
-                 Тут ти зможеш знайти студентів, які зможуть відповісти на твої питання :)
+                 Скільки пар на тиждень? <br>
+                 Як відбувається навчальний процес?..." <br>
+                 У кожного абітурієнта виникає багато питаннь.<br>
+                 Тут ти зможеш знайти  відповіді на свої питання :)
              </p> 
-             <div class="qr-section">
-                <ngx-qrcode
+             <ngx-qrcode
                 [elementType]="elementType"
                 [errorCorrectionLevel]="correctionLevel"
-                [value]="value"
+                [value]="universityUrlForPrint"
                 alt="Demo QR Code"
                 cssClass="bshadow"></ngx-qrcode>
-             </div>
-             <button type="button" class="btn add-btn print-btn"  (click)="onPrintAdvertismentForSchool()">
+             <button type="button" class="btn add-btn print-btn"  (click)="onPrintAdvertismentForUniversity()">
                 <span>Роздрукувати</span>
             </button>
-         </div>       
-    </div> 
-   </div>      
-    <div class="item" id="university">
-        <h2>
-            Оголошення для університетів
-        </h2>
-        <div class="advertisment-container">
-           <img class="logo" src="../../assets/images/logo.png">
-           <p class="info_text">
-                Скільки пар на тиждень? Як відбувається навчальний процес?..."
-                У кожного абітурієнта виникають такі та інші питання пр вступі до ВНЗ.<br>
-                Тут ти зможеш знайти студентів, які зможуть відповісти на твої питання :)
-            </p> 
-            <div class="qr-section">аві</div>
-            <button type="button" class="btn add-btn print-btn"  (click)="onPrintAdvertismentForUniversity()">
-                <span>Роздрукувати</span>
-            </button>
-        </div>
+         </div> 
     </div>
 </div>
