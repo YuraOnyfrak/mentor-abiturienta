@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:61518/api/v1/",
+  apiUrl: "http://onyfrak-001-site1.htempurl.com/api/v1/",//"http://localhost:61518/api/v1/",
   telegramBot : "abiturient_mentor_test_bot"
 };
 
